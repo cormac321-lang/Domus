@@ -27,13 +27,22 @@ jobs:
           node-version: '20'
           cache: 'npm'
       
+      - name: Generate package-lock.json
+        run: |
+          echo "Generating package-lock.json..."
+          npm install --package-lock-only
+          if [ $? -ne 0 ]; then
+            echo "Failed to generate package-lock.json"
+            exit 1
+          fi
+      
       - name: Install dependencies
         run: |
           echo "Installing dependencies..."
-          npm install
+          npm ci
           if [ $? -ne 0 ]; then
-            echo "npm install failed"
-            exit 1
+            echo "npm ci failed, falling back to npm install"
+            npm install
           fi
       
       - name: Build
