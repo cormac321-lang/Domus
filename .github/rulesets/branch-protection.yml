@@ -1,9 +1,9 @@
 name: Branch Protection Rules
-description: Rules to protect the main branch
+description: Rules to protect the main branch and ensure code quality
 enforcement: active
-bypass-actors:
-  - actor: cormac321-lang
-    bypass-mode: always
+bypass_list:
+  - cormac321-lang
+
 rules:
   - name: Require status checks to pass before merging
     parameters:
@@ -13,12 +13,37 @@ rules:
           - lint
           - test
           - build
-      required_pull_request_reviews:
-        required_approving_review_count: 1
-        dismiss_stale_review_approvals: true
-        require_code_owner_reviews: false
-      required_workflows:
-        - status-checks
-targets:
-  branches:
+      require_branches_to_be_up_to_date: true
+      dismiss_stale_reviews_on_push: true
+      require_code_owner_review: true
+      required_approving_review_count: 1
+      bypass_pull_request_allowances:
+        users:
+          - cormac321-lang
+
+  - name: Require pull request reviews before merging
+    parameters:
+      dismiss_stale_reviews_on_push: true
+      require_code_owner_review: true
+      required_approving_review_count: 1
+      bypass_pull_request_allowances:
+        users:
+          - cormac321-lang
+
+  - name: Require signed commits
+    parameters:
+      required_signatures: true
+      bypass_pull_request_allowances:
+        users:
+          - cormac321-lang
+
+  - name: Require linear history
+    parameters:
+      required_linear_history: true
+      bypass_pull_request_allowances:
+        users:
+          - cormac321-lang
+
+target:
+  branch:
     - main 

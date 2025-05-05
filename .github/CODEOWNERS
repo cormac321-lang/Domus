@@ -1,17 +1,30 @@
-# These owners will be the default owners for everything in the repo
+# Default owner for everything in the repo
 * @cormac321-lang
 
 # Frontend components
 /src/components/ @cormac321-lang
-
-# Tests
-/src/**/__tests__/ @cormac321-lang
+/src/hooks/ @cormac321-lang
+/src/utils/ @cormac321-lang
+/src/context/ @cormac321-lang
+/src/layouts/ @cormac321-lang
+/src/assets/ @cormac321-lang
+/src/constants/ @cormac321-lang
+/src/services/ @cormac321-lang
+/src/styles/ @cormac321-lang
+/src/types/ @cormac321-lang
 
 # Configuration files
 *.config.js @cormac321-lang
 *.config.ts @cormac321-lang
 package.json @cormac321-lang
 tsconfig.json @cormac321-lang
+vite.config.js @cormac321-lang
+tailwind.config.js @cormac321-lang
+
+# GitHub workflows and templates
+.github/ @cormac321-lang
+.github/workflows/ @cormac321-lang
+.github/ISSUE_TEMPLATE/ @cormac321-lang
 
 # Documentation
 /docs/ @cormac321-lang
