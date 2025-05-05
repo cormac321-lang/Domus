@@ -1,0 +1,1 @@
+<real working MyProperties.jsx code here>

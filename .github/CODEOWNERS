@@ -1,0 +1,18 @@
+# These owners will be the default owners for everything in the repo
+* @cormac321-lang
+
+# Frontend components
+/src/components/ @cormac321-lang
+
+# Tests
+/src/**/__tests__/ @cormac321-lang
+
+# Configuration files
+*.config.js @cormac321-lang
+*.config.ts @cormac321-lang
+package.json @cormac321-lang
+tsconfig.json @cormac321-lang
+
+# Documentation
+/docs/ @cormac321-lang
+*.md @cormac321-lang 

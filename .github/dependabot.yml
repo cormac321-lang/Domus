@@ -1,0 +1,26 @@
+# Dependabot configuration file
+# See https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "npm"
+    open-pull-requests-limit: 10
+    groups:
+      dependencies:
+        patterns:
+          - "*"
+    versioning-strategy: auto
+    rebase-strategy: auto
+    reviewers:
+      - "cormac321-lang"
+    assignees:
+      - "cormac321-lang"
+    commit-message:
+      prefix: "chore"
+      include: "scope" 
